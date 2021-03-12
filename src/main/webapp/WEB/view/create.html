@@ -24,6 +24,14 @@
         <label>Quantity</label>
         <input name="quantity" type="text" th:field="*{quantity}">
     </div>
+    <div>
+        <label>Category</label>
+        <select th:field="*{category}">
+            <th:block th:each="c: ${listCategory}">
+                <option th:value="${c.id}" th:text="${c.name}"></option>
+            </th:block>
+        </select>
+    </div>
     <input type="submit" value="Save">
 </form>
 </body>

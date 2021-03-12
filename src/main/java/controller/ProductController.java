@@ -2,12 +2,14 @@ package controller;
 
 
 import com.sun.org.apache.xpath.internal.operations.Mod;
+import model.Category;
 import model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import service.ICategoryService;
 import service.IProductService;
 
 import java.util.List;
@@ -18,12 +20,20 @@ import java.util.List;
 public class ProductController {
     @Autowired
     private IProductService productService;
+    @Autowired
+    private ICategoryService categoryService;
 
     @GetMapping("")
     public ModelAndView list(){
         ModelAndView modelAndView=new ModelAndView("list","p",productService.findAll());
         return modelAndView;
     }
+
+    @ModelAttribute("listCategory")
+    public List<Category>listC(){
+        return categoryService.findAll();
+    }
+
     @GetMapping("/create")
     public ModelAndView formCreate(){
         ModelAndView modelAndView=new ModelAndView("create");
@@ -62,6 +72,12 @@ public class ProductController {
         ModelAndView modelAndView=new ModelAndView("list");
         List<Product>products=productService.findByName(name);
         modelAndView.addObject("p",products);
+        return modelAndView;
+    }
+    @PostMapping("productNew")
+    public ModelAndView findProduct(){
+        ModelAndView modelAndView=new ModelAndView("list");
+        modelAndView.addObject("p",productService.productNew());
         return modelAndView;
     }
 

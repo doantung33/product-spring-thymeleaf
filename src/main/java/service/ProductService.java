@@ -43,4 +43,14 @@ public class ProductService implements IProductService{
     public List<Product> findByName(String name) {
         return productRepository.search(name);
     }
+
+    @Override
+    public List<Product> productNew() {
+        return null;
+    }
+
+    @Override
+    public List<Product> dateProductNew() {
+        return null;
+    }
 }

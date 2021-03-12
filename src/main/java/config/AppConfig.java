@@ -23,6 +23,8 @@ import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
+import service.CategoryService;
+import service.ICategoryService;
 import service.IProductService;
 import service.ProductService;
 
@@ -115,5 +117,9 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
     @Bean
     public IProductService productService(){
         return new ProductService();
+    }
+    @Bean
+    public ICategoryService categoryService(){
+        return new CategoryService();
     }
 }

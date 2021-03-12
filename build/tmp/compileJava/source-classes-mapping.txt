@@ -1,14 +1,24 @@
-service/IProductService.java
- service.IProductService
 model/Product.java
  model.Product
+model/Category.java
+ model.Category
+repo/ICategoryRepository.java
+ repo.ICategoryRepository
+service/IService.java
+ service.IService
+service/ICategoryService.java
+ service.ICategoryService
 config/AppInit.java
  config.AppInit
+service/CategoryService.java
+ service.CategoryService
+service/IProductService.java
+ service.IProductService
 service/ProductService.java
  service.ProductService
-config/AppConfig.java
- config.AppConfig
 repo/IProductRepository.java
  repo.IProductRepository
+config/AppConfig.java
+ config.AppConfig
 controller/ProductController.java
  controller.ProductController

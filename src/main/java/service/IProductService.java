@@ -6,12 +6,10 @@ import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
-public interface IProductService {
-    List<Product>findAll();
+public interface IProductService extends IService<Product> {
     Page<Product>findAll(Pageable pageable);
-    Product findById(Long id);
-    Product save(Product product);
-    void delete(Long id);
     List<Product>findByName(String name);
+    List<Product>productNew();
+    List<Product>dateProductNew();
 
 }

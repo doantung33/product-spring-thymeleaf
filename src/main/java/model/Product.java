@@ -1,9 +1,6 @@
 package model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Product {
@@ -15,18 +12,17 @@ public class Product {
     private String description;
     private String dateTime;
     private String quantity;
-    private Long category_id;
+
 
     public Product() {
     }
 
-    public Product(Long id, String name, String description, String dateTime, String quantity, Long category_id) {
+    public Product(Long id, String name, String description, String dateTime, String quantity) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.dateTime = dateTime;
         this.quantity = quantity;
-        this.category_id = category_id;
     }
 
     public Long getId() {
@@ -69,11 +65,15 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public Long getCategory_id() {
-        return category_id;
+
+    @ManyToOne
+    private Category category;
+
+    public Category getCategory() {
+        return category;
     }
 
-    public void setCategory_id(Long category_id) {
-        this.category_id = category_id;
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }
